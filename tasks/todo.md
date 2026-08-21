@@ -13,9 +13,9 @@
 - [x] Add focused GitHub CI.
 - [x] Complete dedicated code and security review.
 - [x] Pass local release gate from the release candidate checkout.
-- [ ] Commit with verified author/committer and no co-author trailers.
-- [ ] Create public GitHub repository and push `main`.
-- [ ] Verify green online CI and repository metadata.
-- [ ] Tag and publish `v0.1.0` with wheel and source-distribution assets.
-- [ ] Verify contributors, tag, Release, assets, and public acceptance commands.
+- [x] Commit with verified author/committer and no co-author trailers.
+- [x] Create public GitHub repository and push `main`.
+- [x] Verify green online CI and repository metadata.
+- [x] Tag and publish `v0.1.0` with wheel and source-distribution assets.
+- [x] Verify contributors, tag, Release, assets, and public acceptance commands.
 - [ ] Send Gmail delivery notification.

@@ -1,6 +1,7 @@
 # Recall Match
 
 [![CI](https://github.com/KanadeK/recall-match/actions/workflows/ci.yml/badge.svg)](https://github.com/KanadeK/recall-match/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/KanadeK/recall-match)](https://github.com/KanadeK/recall-match/releases/latest)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
