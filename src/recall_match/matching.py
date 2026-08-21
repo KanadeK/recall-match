@@ -50,14 +50,15 @@ def _shared_significant_tokens(left: str, right: str) -> int:
 def _candidate(item: InventoryItem, recall: Recall) -> Candidate | None:
     item_upc = normalize_upc(item.upc)
     recall_upcs = {normalize_upc(upc) for upc in recall.upcs}
-    if item_upc and item_upc in recall_upcs:
+    if 8 <= len(item_upc) <= 14 and item_upc in recall_upcs:
         return Candidate(recall, "identifier_match", 100, (f"exact UPC {item_upc}",))
 
-    model_matches = bool(item.model) and (
-        normalize_code(item.model) in {normalize_code(model) for model in recall.models}
+    item_model = normalize_code(item.model)
+    model_matches = len(item_model) >= 4 and (
+        item_model in {normalize_code(model) for model in recall.models}
         or _contains_token_sequence(recall.searchable_text, item.model)
     )
-    brand_present = bool(item.brand) and _contains_token_sequence(
+    brand_present = len(normalize_code(item.brand)) >= 2 and _contains_token_sequence(
         recall.searchable_text, item.brand
     )
     if model_matches and brand_present:

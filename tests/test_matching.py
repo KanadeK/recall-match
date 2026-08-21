@@ -79,6 +79,21 @@ def test_unrelated_product_has_no_candidates():
     assert result.candidates == ()
 
 
+def test_short_generic_codes_never_create_identifier_matches():
+    item = InventoryItem("light", "Desk light", brand="A", model="1", upc="1")
+    generic = recall(
+        title="A recalls model 1 desk lights",
+        product_names=("Desk light",),
+        models=("1",),
+        upcs=("1",),
+        searchable_text="A desk light model 1",
+    )
+
+    candidates = match_inventory([item], [generic])[0].candidates
+
+    assert all(candidate.tier != "identifier_match" for candidate in candidates)
+
+
 def test_candidates_have_stable_score_then_date_order():
     item = InventoryItem("chair", "High chair", brand="Acme", model="HC-200")
     older = recall(recall_id="older", recall_date=date(2025, 1, 1), upcs=())
