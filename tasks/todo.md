@@ -18,4 +18,4 @@
 - [x] Verify green online CI and repository metadata.
 - [x] Tag and publish `v0.1.0` with wheel and source-distribution assets.
 - [x] Verify contributors, tag, Release, assets, and public acceptance commands.
-- [ ] Send Gmail delivery notification.
+- [x] Send Gmail delivery notification.
