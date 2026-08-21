@@ -10,10 +10,10 @@
 
 - Install: `python -m pip install -e ".[dev]"`
 - Focused test: `python -m pytest tests/test_matching.py -q`
-- Full test: `python -m pytest --cov=recall_match --cov-report=term-missing --cov-fail-under=85`
-- Lint: `ruff check .`
-- Format check: `ruff format --check .`
-- Type check: `mypy src`
+- Full test: `python -m pytest --cov=recall_match --cov-report=term-missing --cov-fail-under=90`
+- Lint: `python -m ruff check .`
+- Format check: `python -m ruff format --check .`
+- Type check: `python -m mypy src`
 - Build: `python -m build`
 - Release gate: `python scripts/release_gate.py`
 

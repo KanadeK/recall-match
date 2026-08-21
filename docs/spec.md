@@ -9,7 +9,7 @@ Success means a user can run the documented example, see a true exact model matc
 ## Tech stack
 
 - Python 3.10+.
-- Standard-library runtime only (`argparse`, `csv`, `dataclasses`, `datetime`, `difflib`, `hashlib`, `json`, `pathlib`, `re`, `unicodedata`).
+- Standard-library runtime only.
 - `setuptools==84.0.0` build backend.
 - Development tools: pytest, pytest-cov, ruff, mypy, and build.
 
@@ -48,8 +48,8 @@ External text is normalized with Unicode NFKC plus case-folding. Files larger th
 
 Findings are ordered by inventory item, tier, descending score, recall date, and recall ID.
 
-- `identifier_match`, score 100: exact normalized UPC in a structured UPC field.
-- `identifier_match`, score 96: exact model plus brand phrase present in structured or descriptive recall fields.
+- `identifier_match`, score 100: exact normalized 8–14 digit UPC in a structured UPC field.
+- `identifier_match`, score 96: exact model of at least four normalized characters plus a brand phrase of at least two characters.
 - `review_candidate`, score up to 88: exact sufficiently-specific model without brand agreement.
 - `review_candidate`, score up to 79: brand agreement plus product-name similarity above the documented threshold.
 - `review_candidate`, score up to 69: high product-name similarity with at least two significant tokens.
@@ -78,7 +78,7 @@ examples/               runnable inventory and recall fixtures
 docs/                   research, specification, ADRs, and repair runbook
 scripts/                release gate and deterministic packaging helpers
 tasks/                  implementation plan and completion checklist
-.github/workflows/      CI and release automation
+.github/workflows/      CI automation
 ```
 
 ## Code style
@@ -98,7 +98,7 @@ def normalize_model(value: str) -> str:
 - Unit tests cover normalization, schemas, match tiers, ordering, and false-positive controls.
 - Integration tests load real-shaped CPSC fixtures and produce JSON/Markdown reports.
 - CLI tests verify stdout, files, exit codes, corrupt inputs, and `--fail-on` modes.
-- Security tests enforce file/record/field caps and Markdown escaping.
+- Security tests enforce the file cap, weak-identifier rejection, and Markdown escaping.
 - Coverage gate: at least 90% lines and branches for `recall_match`.
 - Release gate runs quality checks, builds wheel and sdist once, and smoke-tests the installed wheel.
 

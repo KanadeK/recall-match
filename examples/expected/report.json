@@ -1,0 +1,85 @@
+{
+  "schema_version": "1",
+  "tool_version": "0.1.0",
+  "as_of": "2026-08-21",
+  "inputs": {
+    "inventory": {
+      "path": "examples\\inventory.csv",
+      "records": 3
+    },
+    "recalls": {
+      "path": "examples\\cpsc-recalls.json",
+      "records": 2,
+      "latest_recall_date": "2026-08-10"
+    }
+  },
+  "summary": {
+    "items_with_identifier_match": 1,
+    "items_with_review_candidate": 1,
+    "items_without_candidates": 1
+  },
+  "warnings": [],
+  "results": [
+    {
+      "item": {
+        "item_id": "chair-exact",
+        "name": "Harppa 5-in-1 Convertible High Chair",
+        "brand": "Harppa",
+        "model": "BHC001",
+        "upc": "012345678905"
+      },
+      "status": "identifier_match",
+      "candidates": [
+        {
+          "tier": "identifier_match",
+          "score": 100,
+          "reasons": [
+            "exact UPC 012345678905"
+          ],
+          "recall_id": "EXAMPLE-001",
+          "title": "Synthetic Harppa convertible high chair recall",
+          "recall_date": "2026-08-10",
+          "source_url": "https://example.invalid/recalls/EXAMPLE-001",
+          "hazard": "Synthetic fall and entrapment hazard",
+          "remedy": "Synthetic example: stop use and request a replacement"
+        }
+      ]
+    },
+    {
+      "item": {
+        "item_id": "chair-review",
+        "name": "Acme folding high chairs",
+        "brand": "",
+        "model": "",
+        "upc": ""
+      },
+      "status": "review_candidate",
+      "candidates": [
+        {
+          "tier": "review_candidate",
+          "score": 69,
+          "reasons": [
+            "product name similarity 0.98"
+          ],
+          "recall_id": "EXAMPLE-002",
+          "title": "Synthetic Acme folding high chair recall",
+          "recall_date": "2026-08-09",
+          "source_url": "https://example.invalid/recalls/EXAMPLE-002",
+          "hazard": "Synthetic fall hazard",
+          "remedy": "Synthetic example: stop use"
+        }
+      ]
+    },
+    {
+      "item": {
+        "item_id": "lamp-none",
+        "name": "Adjustable desk lamp",
+        "brand": "BrightCo",
+        "model": "L-900",
+        "upc": ""
+      },
+      "status": "no_candidate",
+      "candidates": []
+    }
+  ]
+}

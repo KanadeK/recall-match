@@ -2,20 +2,20 @@
 
 - [x] Research competing tools, current demand, official data, and local overlap.
 - [x] Freeze objective, boundaries, CLI, report schema, and acceptance criteria.
-- [ ] Scaffold package and development environment.
-- [ ] Implement bounded inventory and recall loaders with tests.
-- [ ] Implement explainable match tiers and false-positive controls with tests.
-- [ ] Implement reports, provenance, freshness warnings, and atomic writes with tests.
-- [ ] Implement CLI and stable exit codes with end-to-end tests.
-- [ ] Add example/negative data and generated expected report.
-- [ ] Add user, contributor, security, architecture, and repair documentation.
+- [x] Scaffold package and development environment.
+- [x] Implement bounded inventory and recall loaders with tests.
+- [x] Implement explainable match tiers and false-positive controls with tests.
+- [x] Implement reports, provenance, freshness warnings, and atomic writes with tests.
+- [x] Implement CLI and stable exit codes with end-to-end tests.
+- [x] Add runnable example data and generated expected report.
+- [x] Add user, contributor, security, architecture, and repair documentation.
 - [ ] Add packaging and local release gate.
-- [ ] Add GitHub CI, release workflow, and dependency updates.
+- [ ] Add focused GitHub CI.
 - [ ] Complete independent code and security review.
 - [ ] Pass local release gate from clean checkout.
 - [ ] Commit with verified author/committer and no co-author trailers.
 - [ ] Create public GitHub repository and push `main`.
 - [ ] Verify green online CI and repository metadata.
-- [ ] Tag and publish `v0.1.0` with verified artifacts/checksums.
+- [ ] Tag and publish `v0.1.0` with wheel and source-distribution assets.
 - [ ] Verify contributors, tag, Release, assets, and public acceptance commands.
 - [ ] Send Gmail delivery notification.

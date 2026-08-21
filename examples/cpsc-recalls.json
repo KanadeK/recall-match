@@ -1,0 +1,64 @@
+[
+  {
+    "RecallID": "EXAMPLE-001",
+    "RecallNumber": "EXAMPLE-001",
+    "RecallDate": "2026-08-10T00:00:00",
+    "Title": "Synthetic Harppa convertible high chair recall",
+    "Description": "Synthetic example record for model BHC001.",
+    "URL": "https://example.invalid/recalls/EXAMPLE-001",
+    "Products": [
+      {
+        "Name": "Harppa 5-in-1 Convertible High Chair",
+        "Model": "BHC001"
+      }
+    ],
+    "ProductUPCs": [
+      {
+        "UPC": "012345678905"
+      }
+    ],
+    "Hazards": [
+      {
+        "Name": "Synthetic fall and entrapment hazard"
+      }
+    ],
+    "Remedies": [
+      {
+        "Name": "Synthetic example: stop use and request a replacement"
+      }
+    ],
+    "Importers": [
+      {
+        "Name": "Harppa"
+      }
+    ]
+  },
+  {
+    "RecallID": "EXAMPLE-002",
+    "RecallNumber": "EXAMPLE-002",
+    "RecallDate": "2026-08-09T00:00:00",
+    "Title": "Synthetic Acme folding high chair recall",
+    "Description": "Synthetic example record without a structured UPC or model.",
+    "URL": "https://example.invalid/recalls/EXAMPLE-002",
+    "Products": [
+      {
+        "Name": "Acme Folding High Chair"
+      }
+    ],
+    "Hazards": [
+      {
+        "Name": "Synthetic fall hazard"
+      }
+    ],
+    "Remedies": [
+      {
+        "Name": "Synthetic example: stop use"
+      }
+    ],
+    "Manufacturers": [
+      {
+        "Name": "Acme"
+      }
+    ]
+  }
+]

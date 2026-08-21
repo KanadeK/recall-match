@@ -6,7 +6,7 @@ How might households, repair shops, schools, libraries, and small resellers comp
 
 ## Recommended direction
 
-Build a zero-runtime-dependency Python CLI that accepts an inventory CSV/JSON and a locally downloaded recall dataset. It produces transparent, review-oriented matches with the exact fields that caused each candidate: UPC, model, brand, and product-name similarity. Strong identifier evidence is separated from fuzzy review candidates.
+Build a zero-runtime-dependency Python CLI that accepts an inventory CSV and a locally downloaded CPSC recall JSON dataset. It produces transparent, review-oriented matches with the exact fields that caused each candidate: UPC, model, brand, and product-name similarity. Strong identifier evidence is separated from fuzzy review candidates.
 
 The useful product is the evidence trail, not a search box. A user can keep a simple inventory, periodically download official data, rerun one command, archive the JSON/Markdown report, and see which product labels to inspect. The CLI never claims that an unmatched item is safe and never replaces confirmation on the official recall page.
 
@@ -16,7 +16,7 @@ The useful product is the evidence trail, not a search box. A user can keep a si
 - [x] The local workspace has no owned-product recall matcher. The closest projects address maintenance manuals or product-passport readiness, not recall matching.
 - [x] Current commercial services expose catalog/CSV recall matching, which validates demand, while research found no clear zero-dependency offline open-source CLI with explainable evidence tiers.
 - [ ] Users will maintain enough identifiers (especially UPC/model) for high-confidence matches. The example and documentation must make identifier capture easy.
-- [ ] Other jurisdictions will provide stable exports. The first release deliberately supports generic normalized data plus CPSC JSON instead of promising live multi-agency coverage.
+- [ ] Other jurisdictions will provide stable exports. The first release deliberately supports only CPSC JSON instead of promising generic multi-agency coverage.
 
 ## MVP scope
 

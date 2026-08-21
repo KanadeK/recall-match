@@ -36,11 +36,11 @@ The public interface is one audit CLI command and a versioned JSON report schema
 
 - Pros: freshest data with one command.
 - Cons: non-reproducible runs, network failures, and an external-response trust boundary mixed into matching.
-- Rejected for v0.1.0: users download official data separately, and reports hash the exact input.
+- Rejected for v0.1.0: users download official data separately and choose the report's audit date explicitly when reproducibility matters.
 
 ## Consequences
 
 - Installation and release artifacts stay small and cross-platform.
-- Offline audits are reproducible and private.
+- Offline audits are private and can record the input paths, counts, and audit date used.
 - Data freshness is visible but not automatically repaired.
 - New agency integrations require an additive loader/preset and source-specific tests rather than a generic promise.
