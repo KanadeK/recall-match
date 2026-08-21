@@ -62,11 +62,15 @@ def test_report_has_versioned_provenance_summary_and_freshness_warning():
 
 def test_markdown_escapes_external_text_and_does_not_link_non_http_urls():
     recall = make_recall(
-        title="Acme | <chair>",
+        title="[Acme](https://evil.example) | <chair>",
         url="javascript:alert(1)",
         hazard="Fall | trap",
     )
-    item = InventoryItem("chair", "Chair | <deluxe>\nline", upc="012345678905")
+    item = InventoryItem(
+        "chair`](/unexpected)",
+        "Chair *special* | <deluxe>\nline",
+        upc="012345678905",
+    )
     report = build_report(
         match_inventory([item], [recall]),
         [recall],
@@ -78,9 +82,11 @@ def test_markdown_escapes_external_text_and_does_not_link_non_http_urls():
 
     markdown = render_markdown(report)
 
-    assert "Chair \\| &lt;deluxe&gt; line" in markdown
+    assert "Chair \\*special\\* \\| &lt;deluxe&gt; line" in markdown
     assert "Fall \\| trap" in markdown
     assert "javascript:" not in markdown
+    assert "[Acme](https://evil.example)" not in markdown
+    assert "chair`](/unexpected)" not in markdown
     assert "No candidate found" not in markdown
 
 

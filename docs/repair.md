@@ -28,13 +28,14 @@ Common repairs:
 - `input exceeds the 50 MiB limit`: request a narrower official export or split the inventory and audit each part; do not raise the limit blindly.
 - `missing required columns`: the CSV must contain `item_id,name` exactly.
 - `duplicate item_id`: assign a stable unique ID to each inventory row.
+- `comparison limit`: split the inventory into smaller CSV files and audit each against the same recall export.
 - `top-level JSON value must be an array`: supply the raw CPSC array, not an object wrapping the array.
 - `RecallID/Title/URL is required`: the file is not a supported raw CPSC record set or contains a damaged record; re-export it from the source.
 - Exit `1` with a completed summary: open the candidate report; a configured finding threshold was reached. Rerun with `--fail-on never` only if automation should record rather than fail on findings.
 
 ## 3. Isolate an output failure
 
-If an audit succeeds without `--json-out`/`--markdown-out` but fails with them, the destination parent directory must already exist and be writable. Create the intended narrow directory, then rerun. Each report file is atomically replaced only after its complete content is written.
+If an audit succeeds without `--json-out`/`--markdown-out` but fails with them, the destination parent directory must already exist and be writable. Output paths must differ from each other and from both input paths. Create the intended narrow directory, then rerun. Each report file is atomically replaced only after its complete content is written.
 
 ## 4. Repair a development gate
 
@@ -61,4 +62,3 @@ python scripts/release_gate.py
 ```
 
 The gate deletes and recreates only its own `dist/` and `.release-venv/` outputs.
-

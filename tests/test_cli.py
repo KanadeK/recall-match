@@ -96,6 +96,56 @@ def test_invalid_input_returns_two_with_one_line_error(tmp_path, capsys):
     assert len(error.splitlines()) == 1
 
 
+def test_outputs_cannot_replace_inputs_or_each_other(tmp_path, capsys):
+    inventory, recalls = write_inputs(tmp_path, "chair,High chair,Acme,HC-200,012345678905")
+    original_inventory = inventory.read_text(encoding="utf-8")
+
+    assert (
+        main(
+            [
+                "audit",
+                str(inventory),
+                "--recalls",
+                str(recalls),
+                "--json-out",
+                str(inventory),
+            ]
+        )
+        == 2
+    )
+    assert inventory.read_text(encoding="utf-8") == original_inventory
+    assert "must not replace an input" in capsys.readouterr().err
+
+    shared_output = tmp_path / "report"
+    assert (
+        main(
+            [
+                "audit",
+                str(inventory),
+                "--recalls",
+                str(recalls),
+                "--json-out",
+                str(shared_output),
+                "--markdown-out",
+                str(shared_output),
+            ]
+        )
+        == 2
+    )
+    assert not shared_output.exists()
+    assert "output paths must be different" in capsys.readouterr().err
+
+
+def test_audit_rejects_excessive_comparison_work(tmp_path, capsys, monkeypatch):
+    inventory, recalls = write_inputs(tmp_path, "chair,High chair,Acme,HC-200,012345678905")
+    monkeypatch.setattr("recall_match.cli.MAX_COMPARISONS", 0)
+
+    exit_code = main(["audit", str(inventory), "--recalls", str(recalls)])
+
+    assert exit_code == 2
+    assert "comparison limit" in capsys.readouterr().err
+
+
 def test_version_is_available(capsys):
     with pytest.raises(SystemExit) as result:
         main(["--version"])

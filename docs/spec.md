@@ -44,6 +44,8 @@ The recall file is raw CPSC JSON: a top-level array with fields such as `RecallI
 
 External text is normalized with Unicode NFKC plus case-folding. Files larger than 50 MiB, missing required fields, duplicate inventory IDs, or malformed top-level data fail fast with exit code 2.
 
+An audit is limited to 5,000,000 inventory-to-recall comparisons. Output paths must be distinct and cannot replace either input file.
+
 ## Match contract
 
 Findings are ordered by inventory item, tier, descending score, recall date, and recall ID.

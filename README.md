@@ -129,11 +129,10 @@ Loaders validate the two untrusted files, immutable domain objects cross into a 
 - v0.1.0 supports inventory CSV and raw CPSC recall JSON only.
 - It does not download data, scan receipts, perform OCR, monitor continuously, or cover food, drugs, vehicles, or non-U.S. agencies.
 - Name similarity is intentionally conservative and may miss products or surface false leads.
-- Input files are limited to 50 MiB each.
+- Input files are limited to 50 MiB each and one audit is limited to 5,000,000 inventory-to-recall comparisons. Split a large inventory into smaller files when needed.
 
 ## Contributing and security
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the development contract. Report vulnerabilities through [GitHub private vulnerability reporting](https://github.com/KanadeK/recall-match/security/advisories/new); see [SECURITY.md](SECURITY.md).
 
 MIT licensed. CPSC is the source of the supported public recall schema; this project is not affiliated with or endorsed by CPSC.
-

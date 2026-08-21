@@ -3,6 +3,7 @@
 import html
 import json
 import os
+import re
 import tempfile
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -150,7 +151,8 @@ def render_json(report: AuditReport) -> str:
 
 
 def _markdown_text(value: str) -> str:
-    return html.escape(value.replace("\r", " ").replace("\n", " ")).replace("|", "\\|")
+    escaped_html = html.escape(value.replace("\r", " ").replace("\n", " "))
+    return re.sub(r"([\\`*{}\[\]()#+\-.!_|>])", r"\\\1", escaped_html)
 
 
 def _http_url(value: str) -> str | None:
@@ -190,7 +192,8 @@ def render_markdown(report: AuditReport) -> str:
     for result in report.results:
         lines.extend(
             (
-                f"### {_markdown_text(result.item.name)} (`{_markdown_text(result.item.item_id)}`)",
+                f"### {_markdown_text(result.item.name)} "
+                f"(item ID: {_markdown_text(result.item.item_id)})",
                 "",
                 f"Status: `{_status(result)}`",
                 "",

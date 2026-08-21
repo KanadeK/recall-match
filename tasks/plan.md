@@ -40,8 +40,8 @@ Build the smallest complete offline path first: validated input -> deterministic
 
 ### Checkpoint: Release ready
 
-- [ ] Independent correctness/security review has no unresolved required findings.
-- [ ] Local release gate passes from a clean Git checkout.
+- [x] Dedicated correctness/security review has no unresolved required findings.
+- [x] Local release gate passes from the release candidate checkout.
 - [ ] Public repository, CI, tag, Release, assets, contributor history, and Gmail notification are verified.
 
 ## Risks and mitigations

@@ -10,7 +10,6 @@ Use [GitHub private vulnerability reporting](https://github.com/KanadeK/recall-m
 
 ## Security boundaries
 
-Recall Match reads local UTF-8 CSV/JSON files up to 50 MiB. It does not execute input, fetch source URLs, open browsers, upload inventories, or use templates. Markdown escapes external text and links only validated HTTP(S) URLs. Output destinations remain under the user's control.
+Recall Match reads local UTF-8 CSV/JSON files up to 50 MiB and caps one audit at 5,000,000 comparisons. It does not execute input, fetch source URLs, open browsers, upload inventories, or use templates. Markdown escapes external text and links only validated HTTP(S) URLs. Output paths cannot replace input files or each other.
 
 Matching output is not a safety certification. Users must verify candidates and product labels against the official source notice.
-

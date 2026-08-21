@@ -11,8 +11,8 @@
 - [x] Add user, contributor, security, architecture, and repair documentation.
 - [x] Add packaging and local release gate.
 - [x] Add focused GitHub CI.
-- [ ] Complete independent code and security review.
-- [ ] Pass local release gate from clean checkout.
+- [x] Complete dedicated code and security review.
+- [x] Pass local release gate from the release candidate checkout.
 - [ ] Commit with verified author/committer and no co-author trailers.
 - [ ] Create public GitHub repository and push `main`.
 - [ ] Verify green online CI and repository metadata.

@@ -17,6 +17,8 @@ from recall_match.reporting import (
     write_text_atomic,
 )
 
+MAX_COMPARISONS = 5_000_000
+
 
 def _iso_date(value: str) -> date:
     try:
@@ -53,8 +55,22 @@ def _parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     try:
+        input_paths = {args.inventory.resolve(), args.recalls.resolve()}
+        output_paths = [path for path in (args.json_out, args.markdown_out) if path is not None]
+        resolved_outputs = [path.resolve() for path in output_paths]
+        if any(path in input_paths for path in resolved_outputs):
+            raise InputError("an output path must not replace an input file")
+        if len(resolved_outputs) != len(set(resolved_outputs)):
+            raise InputError("JSON and Markdown output paths must be different")
+
         inventory = load_inventory(args.inventory)
         recalls = load_cpsc_recalls(args.recalls)
+        comparison_count = len(inventory) * len(recalls)
+        if comparison_count > MAX_COMPARISONS:
+            raise InputError(
+                f"audit requires {comparison_count:,} comparisons; comparison limit is "
+                f"{MAX_COMPARISONS:,}. Split the inventory into smaller files"
+            )
         report = build_report(
             match_inventory(inventory, recalls),
             recalls,
