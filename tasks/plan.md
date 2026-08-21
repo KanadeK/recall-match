@@ -35,8 +35,8 @@ Build the smallest complete offline path first: validated input -> deterministic
 ## Phase 3: Delivery
 
 - [x] Task 6: Add examples, README, security policy, contributing guide, and failure-repair runbook.
-- [ ] Task 7: Add wheel/sdist packaging, release gate, and clean-install smoke.
-- [ ] Task 8: Add a focused GitHub Actions CI workflow.
+- [x] Task 7: Add wheel/sdist packaging, release gate, and clean-install smoke.
+- [x] Task 8: Add a focused GitHub Actions CI workflow.
 
 ### Checkpoint: Release ready
 

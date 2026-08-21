@@ -14,7 +14,6 @@ keywords = ["recall", "product-safety", "cpsc", "inventory", "offline"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Environment :: Console",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Topic :: Home Automation",
@@ -36,7 +35,9 @@ recall-match = "recall_match.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/KanadeK/recall-match"
+Documentation = "https://github.com/KanadeK/recall-match#readme"
 Issues = "https://github.com/KanadeK/recall-match/issues"
+Source = "https://github.com/KanadeK/recall-match"
 
 [tool.setuptools.packages.find]
 where = ["src"]

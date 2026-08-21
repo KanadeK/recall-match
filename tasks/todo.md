@@ -9,8 +9,8 @@
 - [x] Implement CLI and stable exit codes with end-to-end tests.
 - [x] Add runnable example data and generated expected report.
 - [x] Add user, contributor, security, architecture, and repair documentation.
-- [ ] Add packaging and local release gate.
-- [ ] Add focused GitHub CI.
+- [x] Add packaging and local release gate.
+- [x] Add focused GitHub CI.
 - [ ] Complete independent code and security review.
 - [ ] Pass local release gate from clean checkout.
 - [ ] Commit with verified author/committer and no co-author trailers.
